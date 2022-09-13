@@ -40,6 +40,9 @@ Route::group(['prefix' => 'admin/', 'as' => 'admin.'], function()
             'destroy'   => 'products.destroy'
         ]
     ]);
+
+    select emp.id, sal.salaray from employees as emp JOIN salaries as sal on emp.id = sal.employee_id order 
+    by sal.salray desc limit 1 offset 2
     
     // admin/categories Routes
     Route::resource('categories', CategoryController::class);
